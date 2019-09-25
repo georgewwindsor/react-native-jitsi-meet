@@ -88,6 +88,20 @@ RCT_EXPORT_METHOD(setEventHandler:(NSString *)event callback:(RCTResponseSenderB
     onConferenceWillLeave = callback;
     } else if ([event  isEqual: @"LOAD_CONFIG_ERROR"]) {
     onLoadConfigError = callback;
+
+    } else if ([event  isEqual: @"STARTED_MUTED"]) {
+    onStartedMuted = callback;
+    } else if ([event  isEqual: @"START_MUTED_POLICY_CHANGED"]) {
+    onStartedMutedPolicyChange = callback;
+    } else if ([event  isEqual: @"TRACK_MUTE_CHANGED"]) {
+    onTrackMuteChange = callback;
+    } else if ([event  isEqual: @"TALK_WHILE_MUTED"]) {
+    onTalkWhileMuted = callback;
+    } else if ([event  isEqual: @“REMOTE_TRACK_UNMUTE”]) {
+    onRemoteTrackunMute = callback;
+    } else if ([event  isEqual: @“REMOTE_TRACK_MUTE”]) {
+    onRemoteTrackMute = callback;
+
   }
 }
 
