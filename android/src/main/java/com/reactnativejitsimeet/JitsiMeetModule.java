@@ -36,8 +36,6 @@ public class JitsiMeetModule extends ReactContextBaseJavaModule {
       filter.addAction("CONFERENCE_WILL_JOIN");
       filter.addAction("CONFERENCE_WILL_LEAVE");
       filter.addAction("LOAD_CONFIG_ERROR");
-
-
       filter.addAction("STARTED_MUTED");
       filter.addAction("START_MUTED_POLICY_CHANGED");
       filter.addAction("TRACK_MUTE_CHANGED");

@@ -13,6 +13,14 @@
     RCTResponseSenderBlock onConferenceWillJoin;
     RCTResponseSenderBlock onConferenceWillLeave;
     RCTResponseSenderBlock onLoadConfigError;
+     RCTResponseSenderBlock   onStartedMuted;
+     RCTResponseSenderBlock   onStartedMutedPolicyChange;
+     RCTResponseSenderBlock   onTrackMuteChange;
+    RCTResponseSenderBlock   onTalkWhileMuted;
+     RCTResponseSenderBlock   onRemoteTrackunMute;
+    RCTResponseSenderBlock   onRemoteTrackMute;
+
+
 }
 
 RCT_EXPORT_MODULE()
@@ -64,6 +72,74 @@ RCT_EXPORT_MODULE()
       onLoadConfigError(@[data]);
     }
 }
+
+
+
+
+
+
+
+
+
+- (void)startedMuted:(NSDictionary *)data {
+    RCTLogInfo(@"Config error");
+    if (onStartedMuted != nil) {
+      onStartedMuted(@[data]);
+    }
+}
+
+- (void)startedMutedPolicyChange:(NSDictionary *)data {
+    RCTLogInfo(@"Config error");
+    if (onStartedMutedPolicyChange != nil) {
+      onStartedMutedPolicyChange(@[data]);
+    }
+}
+- (void)trackMuteChange:(NSDictionary *)data {
+    RCTLogInfo(@"Config error");
+    if (onTrackMuteChange != nil) {
+      onTrackMuteChange(@[data]);
+    }
+}
+- (void)talkWhileMuted:(NSDictionary *)data {
+    RCTLogInfo(@"Config error");
+    if (onTalkWhileMuted!= nil) {
+      onTalkWhileMuted(@[data]);
+    }
+}
+- (void)remoteTrackunMute:(NSDictionary *)data {
+    RCTLogInfo(@"Config error");
+    if (onRemoteTrackunMute != nil) {
+      onRemoteTrackunMute(@[data]);
+    }
+}
+- (void)remoteTrackMute:(NSDictionary *)data {
+    RCTLogInfo(@"Config error");
+    if (onRemoteTrackMute != nil) {
+      onRemoteTrackMute(@[data]);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 RCT_EXPORT_METHOD(loadUrl:(NSString *)urlString)
 {
@@ -118,8 +194,26 @@ RCT_EXPORT_METHOD(removeEventHandler:(NSString *)event)
     } else if ([event  isEqual: @"CONFERENCE_WILL_LEAVE"]) {
     onConferenceWillLeave = nil;
     } else if ([event  isEqual: @"LOAD_CONFIG_ERROR"]) {
-    onLoadConfigError = nil;
-  }
+          onLoadConfigError = nil;
+   }
+    else if ([event  isEqual: @"STARTED_MUTED"]) {
+       onStartedMuted = nil;
+           }
+    else if ([event  isEqual: @"START_MUTED_POLICY_CHANGED"]) {
+       onStartedMutedPolicyChange = nil;
+              }
+    else if ([event  isEqual: @"TRACK_MUTE_CHANGED"]) {
+       onTrackMuteChange = nil;
+                 }
+    else if ([event  isEqual: @"TALK_WHILE_MUTED"]) {
+      onTalkWhileMuted = nil;
+                                   }
+    else if ([event  isEqual: @"REMOTE_TRACK_UNMUTE"]) {
+       onRemoteTrackunMute= nil;
+                                                        }
+   else if ([event  isEqual: @"REMOTE_TRACK_MUTE"]) {
+      onRemoteTrackMute = nil;
+     }
 }
 
 @end*/
