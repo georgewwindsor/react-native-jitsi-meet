@@ -63,6 +63,8 @@ RCT_EXPORT_METHOD(callMuted:(NSString *)urlString)
         [navigationController pushViewController:jitsiMeetViewController animated:true];
         [jitsiMeetViewController setDelegate:self];
         [jitsiMeetViewController loadUrl:urlString];
+        [jitsiMeetViewController mute:urlString];
+
     });
 }
 

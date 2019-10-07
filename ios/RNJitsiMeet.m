@@ -1,4 +1,4 @@
-/*#import <React/RCTViewManager.h>
+#import <React/RCTViewManager.h>
 #import <React/RCTLog.h>
 #import <JitsiMeet/JitsiMeet.h>
 
@@ -150,6 +150,17 @@ RCT_EXPORT_METHOD(loadUrl:(NSString *)urlString)
   });
 }
 
+
+
+RCT_EXPORT_METHOD(mute:(NSString *)urlString)
+{
+    RCTLogInfo(@"Mute Self %@", urlString);
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        jitsiMeetView.delegate = self;
+        [jitsiMeetView mute];
+    });
+}
+
 RCT_EXPORT_METHOD(setEventHandler:(NSString *)event callback:(RCTResponseSenderBlock)callback)
 {
     if ([event  isEqual: @"CONFERENCE_FAILED"]) {
@@ -216,4 +227,4 @@ RCT_EXPORT_METHOD(removeEventHandler:(NSString *)event)
      }
 }
 
-@end*/
+@end

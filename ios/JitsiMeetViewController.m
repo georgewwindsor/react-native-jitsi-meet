@@ -28,6 +28,13 @@
     [jitsiMeetView join:options];
 }
 
+- (void)mute:(NSString *) url {
+    JitsiMeetView *jitsiMeetView = (JitsiMeetView *) self.view;
+    JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {        builder.room = url;
+    }];
+    [jitsiMeetView mute:options];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
